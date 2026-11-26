@@ -1,5 +1,6 @@
 'use client'
 
+import { isValidRut, normalizeRut } from '@/lib/rut'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import {
@@ -271,9 +272,15 @@ export function AccessDashboard() {
       return
     }
 
+    const rawRun = String(data.get('run') || '').trim()
+    if (!isValidRut(rawRun)) {
+      setVisitError('El RUT ingresado no es válido. Revisa el número y el dígito verificador.')
+      return
+    }
+
     const payload = {
       name: String(data.get('name') || '').trim(),
-      run: String(data.get('run') || '').trim(),
+      run: normalizeRut(rawRun),
       paternal_lastname: String(data.get('paternal_lastname') || '').trim(),
       maternal_lastname: String(data.get('maternal_lastname') || '').trim(),
       departmentId: String(data.get('departmentId') || ''),
