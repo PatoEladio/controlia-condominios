@@ -1,0 +1,293 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* La interfaz está diseñada solo en tema claro: no se aplica el tema oscuro del sistema.
+   (Antes un bloque "prefers-color-scheme: dark" volvía blanco el texto sobre campos con fondo blanco.) */
+.dark-mode {
+  color-scheme: dark;
+  background: #101715 !important;
+  color: #edf5f1;
+}
+
+.dark-mode aside,
+.dark-mode header {
+  background: #17211e !important;
+  border-color: #2a3933 !important;
+}
+
+.dark-mode section,
+.dark-mode .bg-white,
+.dark-mode [role='dialog'] {
+  background: #1b2723 !important;
+  border-color: #304039 !important;
+}
+
+.dark-mode .bg-\[\#f6f7f7\] { background: #101715 !important; }
+.dark-mode .bg-\[\#fbfcfb\] { background: #17211e !important; }
+.dark-mode .bg-\[\#f3f5f4\],
+.dark-mode .bg-\[\#f0f3f1\],
+.dark-mode .bg-\[\#f1f3f2\] { background: #22312b !important; }
+.dark-mode .text-\[\#1c2421\],
+.dark-mode .text-\[\#28322e\],
+.dark-mode .text-\[\#42504a\],
+.dark-mode .text-\[\#35423c\] { color: #edf5f1 !important; }
+.dark-mode input,
+.dark-mode textarea { background: #14201c !important; color: #edf5f1; border-color: #3a4a43; }
+.dark-mode .border-\[\#e6eae7\],
+.dark-mode .border-\[\#e3e9e5\],
+.dark-mode .border-\[\#edf0ee\],
+.dark-mode .border-\[\#f0f3f1\] { border-color: #2a3933 !important; }
+.dark-mode nav button { color: #9aa9a3 !important; }
+.dark-mode nav button:hover { background: #22312b !important; color: #edf5f1 !important; }
+.dark-mode nav button.bg-\[\#e4f2ed\] { background: #cfe9df !important; color: #0d684f !important; }
+.dark-mode .bg-\[\#f3f5f4\] { background: #22312b !important; }
+.dark-mode .bg-\[\#d8e7e2\] { background: #315047 !important; }
+.dark-mode .bg-\[\#e2f2ed\],
+.dark-mode .bg-\[\#e7f3ef\] { background: #29463c !important; color: #cfe9df !important; }
+.dark-mode .text-\[\#6f7975\],
+.dark-mode .text-\[\#88938f\],
+.dark-mode .text-\[\#8b9591\],
+.dark-mode .text-\[\#99a29f\],
+.dark-mode .text-\[\#9aa29f\] { color: #9aa9a3 !important; }
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  /* Los campos tienen fondo blanco fijo: el texto siempre es oscuro, sin heredar el color del contenedor */
+  input,
+  textarea,
+  select {
+    color: #0f172a;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    color: #94a3b8;
+  }
+}
+
+/* ==========================================================================
+   Animaciones de FEMAccess
+   Todas se desactivan si el usuario tiene activado "reducir movimiento".
+   ========================================================================== */
+
+@keyframes fa-fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fa-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes fa-modal-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fa-slide-in-right {
+  from { opacity: 0; transform: translateX(28px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fa-pop {
+  0% { opacity: 0; transform: scale(0.5); }
+  60% { opacity: 1; transform: scale(1.14); }
+  100% { transform: scale(1); }
+}
+@keyframes fa-grow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+@keyframes fa-bell-ring {
+  0%, 100% { transform: rotate(0); }
+  10% { transform: rotate(16deg); }
+  20% { transform: rotate(-14deg); }
+  30% { transform: rotate(11deg); }
+  40% { transform: rotate(-9deg); }
+  50% { transform: rotate(5deg); }
+  60% { transform: rotate(0); }
+}
+@keyframes fa-soft-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.88); }
+}
+@keyframes fa-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+@keyframes fa-ring-out {
+  from { opacity: 0.55; transform: scale(0.85); }
+  to { opacity: 0; transform: scale(1.7); }
+}
+@keyframes fa-draw {
+  to { stroke-dashoffset: 0; }
+}
+
+@layer utilities {
+  /* Entrada de vistas, tarjetas y secciones */
+  .fa-fade-up { animation: fa-fade-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  .fa-fade-in { animation: fa-fade-in 0.3s ease-out backwards; }
+  /* Filas de tabla / listas: aparecen en cascada con --i (índice) */
+  .fa-row {
+    animation: fa-fade-up 0.42s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: calc(var(--i, 0) * 45ms);
+  }
+  /* Ventanas modales */
+  .fa-backdrop { animation: fa-fade-in 0.2s ease-out backwards; }
+  .fa-modal { animation: fa-modal-in 0.28s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  /* Avisos */
+  .fa-toast { animation: fa-slide-in-right 0.4s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+  /* Íconos de éxito, contadores y badges nuevos */
+  .fa-pop { animation: fa-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) backwards; }
+  .fa-pop-delayed { animation: fa-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s backwards; }
+  /* Barras de gráficos */
+  .fa-grow {
+    transform-origin: bottom;
+    animation: fa-grow 0.65s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+    animation-delay: calc(var(--i, 0) * 25ms);
+  }
+  .fa-bell-ring { transform-origin: top center; animation: fa-bell-ring 1s ease-in-out backwards; }
+  .fa-soft-pulse { animation: fa-soft-pulse 1.8s ease-in-out infinite; }
+  .fa-float { animation: fa-float 4s ease-in-out infinite; }
+  /* Onda que se expande detrás de un ícono */
+  .fa-ring-out { animation: fa-ring-out 1.6s ease-out infinite; }
+  /* Trazo que se dibuja (check de éxito) */
+  .fa-draw { stroke-dasharray: 30; stroke-dashoffset: 30; animation: fa-draw 0.5s ease-out 0.25s forwards; }
+  /* Tarjetas que se elevan al pasar el mouse */
+  .fa-lift { transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease, border-color 0.25s ease; }
+  .fa-lift:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(15, 23, 42, 0.09); border-color: #cbd5e1; }
+}
+
+/* Al hacer clic, los botones se "hunden" un poco */
+@layer base {
+  button:not(:disabled):active,
+  [role='tab']:active {
+    transform: scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-fade-up, .fa-fade-in, .fa-row, .fa-backdrop, .fa-modal, .fa-toast, .fa-pop, .fa-pop-delayed,
+  .fa-grow, .fa-bell-ring, .fa-soft-pulse, .fa-float, .fa-ring-out {
+    animation: none !important;
+  }
+  .fa-draw { animation: none !important; stroke-dashoffset: 0; }
+  .fa-lift, .fa-lift:hover { transition: none; transform: none; }
+  button:not(:disabled):active, [role='tab']:active { transform: none; }
+}
